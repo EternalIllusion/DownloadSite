@@ -43,8 +43,125 @@ body {
 }
 
 .searchlist li > * {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.card {
+    grid-template:
+        "placeholder placeholder"
+        "icon title"
+        "description description"
+        "tags tags"
+        "stats stats";
+    margin: 1rem;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content min-content 1fr min-content min-content;
+    padding: 0 0 1rem 0 !important;
+    row-gap: .5rem;
+    display: inline-grid;
+    margin: 0;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 100, .1) 0px 2px 4px 0px;
+    padding-bottom: 1rem;
+}
+.card-gallery {
+    grid-template:
+        "gallery gallery"
+        "icon title"
+        "description description"
+        "tags tags"
+        "stats stats";
+    margin: 1rem;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content min-content 1fr min-content min-content;
+    padding: 0 0 1rem 0 !important;
+    row-gap: .5rem;
+    display: inline-grid;
+    margin: 0;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 100, .1) 0px 2px 4px 0px;
+    padding-bottom: 1rem;
+}
+.card::after{
+    content: "";
+    grid-area: placeholder;
+    width: 100%;
+    height: 0;
+    align-items: center;
+    display: inline-block;
+    row-gap: 0;
+}
+.card-gallery .gallery {
+    grid-area: gallery;
+    align-items: center;
+    display: inline-block;
+    height: 10rem;
+    width: 100%;
+    border-radius: 0;
+}
+.card .icon {
+    margin: .5rem 0 0 1rem;
+    z-index: 1;
+    grid-area: icon;
+    align-items: center;
+    display: flex;
+    width: 7rem;
+    height: 7rem;
+    max-width: 7rem;
+    max-height: 7rem;
+}
+.card-gallery .icon {
+    margin: -3rem 0 0 1rem;
+    z-index: 1;
+    grid-area: icon;
+    align-items: center;
+    display: flex;
+    width: 7rem;
+    height: 7rem;
+    max-width: 7rem;
+    max-height: 7rem;
+}
+.card .title, .card-gallery .title {
+    grid-area: title;
+    align-items: baseline;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem ;
+    margin-left: .75rem;
+    margin-bottom: 0;
+    column-gap: .5rem;
+    flex-wrap: wrap;
+    row-gap: 0;
+    word-wrap: anywhere;
+}
+.card .title > *, .card-gallery .title > *{
+    margin: 0;
+    padding: 0;
+}
+.card .description, .card-gallery .description {
+    grid-area: description;
+    align-items: center;
+    display: flex;
+    margin-inline: 1rem;
+}
+.card .tags, .card-gallery .tags {
+    grid-area: tags;
+    align-items: center;
+    display: flex;
+    margin-inline: 1rem;
+    margin-top: .25rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card .stats, .card-gallery .stats {
+    grid-area: stats;
+    align-items: center;
+    display: flex;
+    margin-inline: 1rem;
+    margin-top: 0;
+    column-gap: .75rem;
 }
 
 /* color patterns */

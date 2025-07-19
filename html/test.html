@@ -10,27 +10,68 @@
     <style>* {font-family:'Moon Stars Kai HW';font-weight:'700'};</style>
 </head>
 <body>
-<article>
-    <h3>Search Bar</h3>
-    <div style="display: flex !important;margin:.25rem .5rem .25rem .5rem;box-sizing: border-box;align-items: center;position: relative;margin-bottom: .25rem;margin-top: .25rem;margin-left: .5rem;margin-right: .5rem;line-height: 1.15;"><svg style="color: var(--color-base);height: 1.25rem;left: .75rem;opacity: .6;position: absolute;width: 1.25rem;z-index: 1;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0"></path></svg><input style="padding: 0 .5rem 0 3rem !important;width:100%;appearance: none !important;background-color: #f5f5f5;border: none;border-radius: 0.75rem;box-shadow: 0px -1px 2px rgba(17, 24, 39, .15);color: #2c2e31;outline: 2px solid transparent !important;min-height: 2.25rem !important;font-size: .875rem;line-height: 1.25rem;margin: 0;padding-block: 1px;padding-inline: 2px;overflow-clip-margin: 0px !important;overflow: clip !important;box-sizing: border-box;" id="ceshi" value="" class="!min-h-9 text-sm" type="text" placeholder="Search..." autocomplete="off"></div>
-    <ul id="itemList" class="searchlist">
-        <li data-index="Apple">Apple</li>
-        <li data-index="Banana">Banana</li>
-        <li>Orange</li>
-        <li><h1>EXCEPTION</h1></li>
-        <li><h2>EXCEPTION</h2></li>
-        <li><h3>EXCEPTION</h3></li>
-        <li><h4>EXCEPTION</h4></li>
-        <li><h5>EXCEPTION</h5></li>
-        <li><h6>EXCEPTION</h6></li>
-        <li>啊啊啊啊啊啊啊</li>
-        <li>啊啊啊啊啊啊啊啊啊啊嗷</li>
-        <!-- 更多 li 元素 -->
-    </ul>
     <script src="./js/search.js"></script>
-    <script>searchAttach(document.getElementById('ceshi'), document.getElementById('itemList'));</script>
-    <h3>Card Item</h3>
-    
-</article>
+    <article>
+        <h3>Search Bar</h3>
+        <div style="display: flex !important;margin:.25rem .5rem .25rem .5rem;box-sizing: border-box;align-items: center;position: relative;margin-bottom: .25rem;margin-top: .25rem;margin-left: .5rem;margin-right: .5rem;line-height: 1.15;"><svg style="color: var(--color-base);height: 1.25rem;left: .75rem;opacity: .6;position: absolute;width: 1.25rem;z-index: 1;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0"></path></svg><input style="padding: 0 .5rem 0 3rem !important;width:100%;appearance: none !important;background-color: #f5f5f5;border: none;border-radius: 0.75rem;box-shadow: 0px -1px 2px rgba(17, 24, 39, .15);color: #2c2e31;outline: 2px solid transparent !important;min-height: 2.25rem !important;font-size: .875rem;line-height: 1.25rem;margin: 0;padding-block: 1px;padding-inline: 2px;overflow-clip-margin: 0px !important;overflow: clip !important;box-sizing: border-box;" id="ceshi" value="" class="!min-h-9 text-sm" type="text" placeholder="Search..." autocomplete="off"></div>
+        <ul id="itemList" class="searchlist">
+            <li data-index="Apple">Apple</li>
+            <li data-index="Banana">Banana</li>
+            <li>Orange</li>
+            <li><h1>EXCEPTION</h1></li>
+            <li><h2>EXCEPTION</h2></li>
+            <li><h3>EXCEPTION</h3></li>
+            <li><h4>EXCEPTION</h4></li>
+            <li><h5>EXCEPTION</h5></li>
+            <li><h6>EXCEPTION</h6></li>
+            <li>啊啊啊啊啊啊啊</li>
+            <li>啊啊啊啊啊啊啊啊啊啊嗷</li>
+            <!-- 更多 li 元素 -->
+            <li><h3>Card Item</h3></li>
+        <li><div class="card">
+            <div class="title">
+                <h2>Card Title</h2>
+                <p>Card Subtitle</p>
+            </div>
+            <div class="icon">
+                <img src="./assets/icon.png" alt="" width="100%" height="100%">
+            </div>
+            <div class="description">
+                <p>This is a simple card item with some text content.</p>
+                <button class="btn">Action</button>
+            </div>
+            <div class="tags">
+                <span>ajsdhg</span><span>akjdfshb</span>
+            </div>
+            <div class="stats">
+                <span>ajsdhg</span><span>akjdfshb</span>
+            </div>
+        </div></li>
+        <li><div class="card-gallery">
+            <div class="title">
+                <h2>Card Title</h2>
+                <p>Card Subtitle</p>
+            </div>
+            <div class="gallery" style="background-color:aqua;">
+                <h1>Gallery!</h1>
+            </div>
+            <div class="icon">
+                <img src="./assets/icon.png" alt="" width="100%" height="100%">
+            </div>
+            <div class="description">
+                <p>This is a simple card item with some text content.</p>
+                <button class="btn">Action</button>
+            </div>
+            <div class="tags">
+                <span>ajsdhg</span><span>akjdfshb</span>
+            </div>
+            <div class="stats">
+                <span>ajsdhg</span><span>akjdfshb</span>
+            </div>
+        </div></li>
+        </ul>
+        <script>searchAttach(document.getElementById('ceshi'), document.getElementById('itemList'));</script>
+
+    </article>
 </body>
 </html>
