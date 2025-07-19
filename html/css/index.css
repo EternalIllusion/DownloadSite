@@ -22,9 +22,6 @@ img {
     background-color: rgb(245, 245, 245);
 }
 
-article {
-    background-color: rgb(255, 255, 255);
-}
 
 body {
     background-color: rgb(229, 231, 235);
@@ -34,6 +31,22 @@ body {
 .searchlist{
     list-style: none;
     padding: 1rem !important;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .75rem;
+    width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+    .searchlist{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+.searchlist{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .searchlist li {
@@ -47,6 +60,13 @@ body {
     padding: 0 ;
 }
 
+/* Card Widgets */
+
+.card, .card-gallery {
+    background-color: rgb(255, 255, 255);
+    margin-bottom: .5rem !important;
+    width: 100%;
+}
 .card {
     grid-template:
         "placeholder placeholder"
@@ -54,13 +74,13 @@ body {
         "description description"
         "tags tags"
         "stats stats";
-    margin: 1rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
     grid-template-columns: min-content 1fr;
     grid-template-rows: min-content min-content 1fr min-content min-content;
     padding: 0 0 1rem 0 !important;
     row-gap: .5rem;
     display: inline-grid;
-    margin: 0;
     overflow: hidden;
     box-shadow: rgba(50, 50, 100, .1) 0px 2px 4px 0px;
     padding-bottom: 1rem;
@@ -72,7 +92,8 @@ body {
         "description description"
         "tags tags"
         "stats stats";
-    margin: 1rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
     grid-template-columns: min-content 1fr;
     grid-template-rows: min-content min-content 1fr min-content min-content;
     padding: 0 0 1rem 0 !important;
@@ -142,7 +163,9 @@ body {
 }
 .card .description, .card-gallery .description {
     grid-area: description;
-    align-items: center;
+    flex-direction: column;
+    align-items: normal;
+    justify-content: left;
     display: flex;
     margin-inline: 1rem;
 }
