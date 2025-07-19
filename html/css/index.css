@@ -38,15 +38,16 @@ body {
     width: 100%;
 }
 
-@media screen and (max-width: 750px) {
-    .searchlist{
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-}
 
 .searchlist{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 750px) {
+    .searchlist{
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
 }
 
 .searchlist li {
@@ -120,6 +121,9 @@ body {
     height: 10rem;
     width: 100%;
     border-radius: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .card .icon {
     margin: .5rem 0 0 1rem;
@@ -177,6 +181,7 @@ body {
     margin-top: .25rem;
     flex-direction: row;
     flex-wrap: wrap;
+    column-gap: .75rem;
 }
 .card .stats, .card-gallery .stats {
     grid-area: stats;
