@@ -1,0 +1,62 @@
+/* EterIll's DownloadSite 
+ * @author:EternalIllusion
+ * @version:1.0.0
+ */
+
+/* UI style */
+
+* {
+    margin: 0;
+    border-radius: 12px;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0 1rem 0 1rem;
+    padding: .8rem 0 .8rem 0;
+}
+
+img {
+    background-color: rgb(245, 245, 245);
+}
+
+article {
+    background-color: rgb(255, 255, 255);
+}
+
+body {
+    background-color: rgb(229, 231, 235);
+    padding: 1.5rem;
+}
+
+.searchlist{
+    list-style: none;
+    padding: 1rem !important;
+}
+
+.searchlist li {
+    margin: .2rem !important;
+    list-style: none;
+    padding: 0;
+}
+
+.searchlist li > * {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* color patterns */
+
+.color-modrinth-green {
+    background-color: rgb(0, 175, 92);
+    color: rgb(255, 255, 255);
+    text-decoration-color: rgb(255, 255, 255);
+}
+
+.color-modrinth-lightgreen {
+    background-color: rgba(0, 175, 92, 0.25);
+    color: rgb(26, 32, 44);
+    text-decoration-color: rgb(26, 32, 44);
+}
