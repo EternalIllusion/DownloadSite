@@ -221,6 +221,7 @@ body {
     justify-content: left;
     display: flex;
     margin-inline: 1rem;
+    text-align: left;
 }
 .card .tags, .card-gallery .tags {
     grid-area: tags;
