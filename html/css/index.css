@@ -26,6 +26,7 @@ img {
 body {
     background-color: rgb(229, 231, 235);
     padding: 1.5rem;
+    min-width: 432px;
 }
 
 .searchlist{
@@ -44,14 +45,28 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 648px) {
     .searchlist{
         grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
     }
 }
 
+@media screen and (min-width: 1296px) and (max-width: 1944px) {
+    .searchlist{
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+
+@media screen and (min-width: 1944px){
+    .searchlist{
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
 .searchlist li {
     margin: .2rem !important;
+    align-items: center;
+    text-align: center;
     list-style: none;
     padding: 0;
 }
@@ -59,6 +74,40 @@ body {
 .searchlist li > * {
     margin: 0 ;
     padding: 0 ;
+}
+
+@media screen and (min-width: 1945px){
+    .searchlist li{
+        max-width: 648px !important;
+    }
+}
+
+
+.searchlist-nogrid{
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.searchlist-nogrid li {
+    margin: .2rem !important;
+    max-height: 1.5rem;
+    text-align: left;
+    text-overflow: ellipsis;
+    list-style: none;
+    padding: 0;
+    word-break: break-all;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.searchlist-nogrid li > * {
+    margin: 0 ;
+    padding: 0 ;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /* Card Widgets */
@@ -190,6 +239,34 @@ body {
     margin-inline: 1rem;
     margin-top: 0;
     column-gap: .75rem;
+}
+
+.card .tags .icons, .card-gallery .tags .icons, .card .stats .icons, .card-gallery .stats .icons {
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+} 
+
+.card .tags span, .card-gallery .tags span,.card .stats span, .card-gallery .stats span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
 }
 
 /* color patterns */
