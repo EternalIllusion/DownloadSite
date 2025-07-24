@@ -164,7 +164,7 @@ function setCookie(key,value) {
     document.cookie = `${key}=${value};expires=${d.toUTCString()};path=/`;
 }
 
-function getCookieBool(key,auto=False) {
+function getCookieBool(key,auto=false) {
     var name = `${key}=`;
     var ca = decodeURIComponent(document.cookie).split(';');
     for (var i = 0; i < ca.length; i++) {
@@ -188,27 +188,27 @@ function getCookie(key,auto=null) {
 
 /* Sidebar Widget */
 
-function toggleSidebar(id='nav-sidebar',btnid='nav-toggle-button') {
+function toggleSidebar(id='nav-sidebar',toggleBtn='nav-toggle-button') {
     var sidebar = document.getElementById(id);
-    var togbar = document.getElementById(btnid);
+    var tbtn = document.getElementById(toggleBtn);
     if (sidebar.classList.contains('nav-sidebar-collapsed')) {
         sidebar.classList.remove('nav-sidebar-collapsed');
-        togbar.classList.add('nav-sidebar-open');
-        sidebar.style.width = '75px'; // 确保边栏展开到完整宽度
-        setCol(true);
+        tbtn.classList.remove('nav-sidebar-collapsed-btn');
+        setCookieBool('navsidebar',true);
     } else {
         sidebar.classList.add('nav-sidebar-collapsed');
-        togbar.classList.remove('nav-sidebar-open');
-        closesub();
-        sidebar.style.width = '0px'; // 确保边栏完全收起
-        setCol(false); // 旋转展开按钮
+        tbtn.classList.add('nav-sidebar-collapsed-btn');
+        closeSidebarSub();
+        setCookieBool('navsidebar',false); // 旋转展开按钮
     }
+    refreshSidebarBtn();
 }
 
-function toggleSidebarSub(currentid,id='nav-sidebar-sub',wrapperid='nav-sidebar-sub-wrapper') {
+function toggleSidebarSub(currentid,id='nav-sidebar-sub',wrapperid='nav-sidebar-sub-wrapper',toggleBtn='nav-toggle-button') {
     var sidebar = document.getElementById(id);
     var parent = document.getElementById(wrapperid);
     var htm = document.getElementById(currentid);
+    var tbtn = document.getElementById(toggleBtn);
     if (sidebar.classList.contains('nav-sidebar-collapsed')) {
         sidebar.classList.remove('nav-sidebar-collapsed');
         // 使用 children 遍历所有元素子节点
@@ -216,7 +216,8 @@ function toggleSidebarSub(currentid,id='nav-sidebar-sub',wrapperid='nav-sidebar-
             parent.children[i].style.display = "none";
         }
         htm.style.display = "block";
-        sidebar.style.width = '175px'; // 确保边栏展开到完整宽度
+        sidebar.classList.remove('nav-sidebar-collapsed');
+        tbtn.classList.remove('nav-sidebar-sub-collapsed-btn');
     } else {
         if (htm.style.display == "none") {
             for (let i = 0; i < parent.children.length; i++) {
@@ -225,14 +226,26 @@ function toggleSidebarSub(currentid,id='nav-sidebar-sub',wrapperid='nav-sidebar-
             htm.style.display = "block";
         } else {
             sidebar.classList.add('nav-sidebar-collapsed');
-            sidebar.style.width = '0px'; // 确保边栏完全收起
+            tbtn.classList.add('nav-sidebar-sub-collapsed-btn');
+            //sidebar.style.width = '0px'; // 确保边栏完全收起
         }
     }
+    refreshSidebarBtn();
 }
 
 function closeSidebarSub(id='nav-sidebar-sub') {
     var sidebar = document.getElementById(id);
     sidebar.classList.add('nav-sidebar-collapsed');
-    sidebar.style.width = '0px'; // 确保边栏完全收起
+    //sidebar.style.width = '0px'; // 确保边栏完全收起
+    refreshSidebarBtn();
 }
 
+function refreshSidebarBtn(id='nav-toggle-button',sidebarid='nav-sidebar',sidebarsubid='nav-sidebar-sub') {
+    var sidebar = document.getElementById(sidebarid);
+    var sidebarsub = document.getElementById(sidebarsubid);
+    var tbtn = document.getElementById(id);
+    tbtn.classList.toggle('nav-sidebar-collapsed-btn',sidebar.classList.contains('nav-sidebar-collapsed'));
+    tbtn.classList.toggle('nav-sidebar-sub-collapsed-btn',sidebarsub.classList.contains('nav-sidebar-collapsed'));
+}
+
+document.addEventListener('DOMContentLoaded', () => {refreshSidebarBtn();});

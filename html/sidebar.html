@@ -1,97 +1,10 @@
-<style>
-    /* 右侧边栏的基本样式 */
-    #nav-sidebar {
-        display: flex;
-        flex-direction: column;
-        width: 75px;
-        height: 100%;
-        position: fixed;
-        right: 0;
-        top: 0;
-        background-color: #f4f4f4;
-        transition: width 0.3s;
-        overflow: auto;
-        z-index:69;
-    }
-    
-    #nav-sidebar-sub {
-        display: flex;
-        flex-direction: column;
-        width: 0;
-        height: 100%;
-        position: fixed;
-        right: 0;
-        top: 0;
-        background-color: #fcfcfc;
-        transition: width 0.3s;
-        overflow: auto;
-        z-index:64;
-    }
-    
-    /* 展开按钮的基本样式 */
-    #nav-toggle-button {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        width: 50px;
-        height: 50px;
-        background-color: #bbbbbb;
-        color: black;
-        border: none;
-        cursor: pointer;
-        border-radius: 25px;
-        font-size: 24px;
-        line-height: 50px;
-        text-align: center;
-        transition: transform 0.3s, bottom 0.3s, right 0.3s;
-        transform-origin: center;
-        display: block; /* 默认隐藏 */
-    }
-    
-    /* 边栏展开时，展开按钮移动到左下角并旋转180度 */
-    #nav-sidebar:not(.nav-sidebar-collapsed) + #nav-toggle-button {
-        right: 72.5px;
-        bottom: 0;
-        transform: rotate(180deg);
-    }
-    
-    /* 边栏收起时，展开按钮回到右下角 */
-    #nav-sidebar.nav-sidebar-collapsed + #nav-toggle-button {
-        display: block;
-        right: 0;
-        bottom: 0;
-        transform: rotate(0deg);
-    }
-
-    #nav-sidebar-wrapper {
-        margin-top:auto;
-        white-space: normal;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        width: 75px; /* 限制宽度以看到换行效果 */
-       
-    }
-    
-    #nav-sidebar-sub-wrapper {
-        margin-top:auto;
-        white-space: normal;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        width: 100px; /* 限制宽度以看到换行效果 */
-       
-    }
-    #nav-sidebar-sub-wrapper p{
-        margin:2px;
-    }
-    
-</style>
 <!-- 右侧边栏 -->
 <div id="nav-sidebar" class="nav-sidebar-collapsed">
     <!-- 边栏内容 -->
     <div id="nav-sidebar-wrapper">
     </div>
 </div>
-<button id="nav-toggle-button" onclick="toggleSidebar()">&lt;</button>
+<button id="nav-toggle-button" onclick="toggleSidebar()"><div id="nav-toggle-button-arrow">&lt;</div></button>
 <!-- 二级菜单 -->
 <div id="nav-sidebar-sub">
     <div id="nav-sidebar-sub-wrapper">

@@ -3,6 +3,18 @@
  * @version:1.0.0
  */
 
+
+/***
+ *     /$$   /$$ /$$$$$$       /$$$$$$$                      /$$          
+ *    | $$  | $$|_  $$_/      | $$__  $$                    |__/          
+ *    | $$  | $$  | $$        | $$  \ $$  /$$$$$$   /$$$$$$$ /$$  /$$$$$$$
+ *    | $$  | $$  | $$        | $$$$$$$  |____  $$ /$$_____/| $$ /$$_____/
+ *    | $$  | $$  | $$        | $$__  $$  /$$$$$$$|  $$$$$$ | $$| $$      
+ *    | $$  | $$  | $$        | $$  \ $$ /$$__  $$ \____  $$| $$| $$      
+ *    |  $$$$$$/ /$$$$$$      | $$$$$$$/|  $$$$$$$ /$$$$$$$/| $$|  $$$$$$$
+ *     \______/ |______/      |_______/  \_______/|_______/ |__/ \_______/                   
+ *                                                                        
+ */
 /* UI style */
 
 * {
@@ -58,7 +70,30 @@ body {
     margin: 2rem 1rem 2rem 0;
 }
 
-/* Search Widgets */
+.auto-breakword > * {
+    text-overflow: unset !important;
+    overflow: unset;
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+}
+
+.auto-breakword {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+}
+
+/***
+ *      /$$$$$$                                     /$$             /$$      /$$           /$$    
+ *     /$$__  $$                                   | $$            | $$     |__/          | $$    
+ *    | $$  \__/ /$$$$$$  /$$$$$$  /$$$$$$  /$$$$$$| $$$$$$$       | $$      /$$ /$$$$$$$/$$$$$$  
+ *    |  $$$$$$ /$$__  $$|____  $$/$$__  $$/$$_____| $$__  $$      | $$     | $$/$$_____|_  $$_/  
+ *     \____  $| $$$$$$$$ /$$$$$$| $$  \__| $$     | $$  \ $$      | $$     | $|  $$$$$$  | $$    
+ *     /$$  \ $| $$_____//$$__  $| $$     | $$     | $$  | $$      | $$     | $$\____  $$ | $$ /$$
+ *    |  $$$$$$|  $$$$$$|  $$$$$$| $$     |  $$$$$$| $$  | $$      | $$$$$$$| $$/$$$$$$$/ |  $$$$/
+ *     \______/ \_______/\_______|__/      \_______|__/  |__/      |________|__|_______/   \___/ 
+ *                                                                                                
+ */
+/* Search Widgets - Data List */
 
 .searchlist{
     list-style: none;
@@ -69,7 +104,6 @@ body {
     gap: .75rem;
     width: 100%;
 }
-
 
 .searchlist{
     display: grid;
@@ -113,8 +147,7 @@ body {
     }
 }
 
-
-.searchlist-nogrid{
+.searchlist-nogrid, .searchlist-breakword{
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -141,6 +174,166 @@ body {
     overflow: hidden;
 }
 
+.searchlist-breakword li {
+    margin: .2rem !important;
+    min-height: 1.5rem;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    word-break: break-all;
+    max-width: 100%;
+}
+
+.searchlist-breakword li > * {
+    margin: 0 ;
+    padding: 0 ;
+    word-break: break-all;
+}
+
+
+/***
+ *      /$$$$$$  /$$       /$$           /$$$$$$$                     
+ *     /$$__  $$|__/      | $$          | $$__  $$                    
+ *    | $$  \__/ /$$  /$$$$$$$  /$$$$$$ | $$  \ $$  /$$$$$$   /$$$$$$ 
+ *    |  $$$$$$ | $$ /$$__  $$ /$$__  $$| $$$$$$$  |____  $$ /$$__  $$
+ *     \____  $$| $$| $$  | $$| $$$$$$$$| $$__  $$  /$$$$$$$| $$  \__/
+ *     /$$  \ $$| $$| $$  | $$| $$_____/| $$  \ $$ /$$__  $$| $$      
+ *    |  $$$$$$/| $$|  $$$$$$$|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$      
+ *     \______/ |__/ \_______/ \_______/|_______/  \_______/|__/
+ *
+ */
+/* SideBar Navigation Bar */
+
+#nav-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #f4f4f4;
+    transition: width 0.3s;
+    overflow: auto;
+    overflow-x: hidden !important;
+    z-index:69;
+}
+
+#nav-sidebar-sub {
+    display: flex;
+    flex-direction: column;
+    width: 26rem;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #fcfcfc;
+    transition: width 0.3s;
+    overflow: auto;
+    overflow-x: hidden !important;
+    z-index:64;
+}
+
+#nav-sidebar-wrapper {
+    margin-top:auto;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 10rem;
+    min-width: 10rem;
+    max-width: 10rem;
+    margin-bottom: 2rem;
+}
+
+#nav-sidebar-sub-wrapper {
+    margin-top:auto;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 16rem;
+    max-width: 16rem;
+    min-width: 16rem;
+    margin-bottom: 2rem;
+}
+
+#nav-sidebar-sub-wrapper p{
+    margin:.125rem;
+}
+
+#nav-sidebar-wrapper > *, #nav-sidebar-sub-wrapper > * {
+    margin: 0 5% 0 5%;
+    min-width: 90%;
+    max-width: 90%;
+}
+
+.nav-sidebar-collapsed{
+    width: 0 !important;
+    overflow: hidden;
+    overflow-x: hidden !important;
+}
+
+#nav-toggle-button {
+    position: fixed;
+    right: 22rem;
+    bottom: 2rem;
+    width: 6rem;
+    height: 3rem;
+    background-color: #bbbbbb;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: left;
+    transition: transform 0.3s, bottom 0.3s, right 0.3s;
+    transform-origin: right;
+    display: block;
+    z-index: 60;
+    transform: rotate(0deg);
+}
+
+#nav-toggle-button-arrow {
+    transition: transform 0.3s, bottom 0.3s, right 0.3s;
+    transform-origin: center;
+    display: block;
+    width: fit-content !important;
+    bottom: 0;
+    transform: rotate(180deg);
+    margin-left: .5rem;
+}
+
+.nav-sidebar-collapsed-btn #nav-toggle-button-arrow {
+    display: block;
+    /* right: .5rem; */
+    margin-bottom: -1.25rem;
+    transform: rotate(270deg);
+}
+
+#nav-toggle-button.nav-sidebar-sub-collapsed-btn {
+    right: 6rem;
+    bottom: 2rem;
+    transform: rotate(0deg);
+}
+
+#nav-toggle-button.nav-sidebar-collapsed-btn.nav-sidebar-sub-collapsed-btn {
+    display: block;
+    right: .25rem;
+    bottom: 2rem;
+    transform: rotate(90deg);
+}
+
+
+/***
+ *      /$$$$$$                            /$$
+ *     /$$__  $$                          | $$
+ *    | $$  \__/  /$$$$$$   /$$$$$$   /$$$$$$$
+ *    | $$       |____  $$ /$$__  $$ /$$__  $$
+ *    | $$        /$$$$$$$| $$  \__/| $$  | $$
+ *    | $$    $$ /$$__  $$| $$      | $$  | $$
+ *    |  $$$$$$/|  $$$$$$$| $$      |  $$$$$$$
+ *     \______/  \_______/|__/       \_______/                       
+ */
 /* Card Widgets */
 
 .card, .card-gallery {
@@ -302,7 +495,18 @@ body {
     flex-shrink: 0;
 }
 
-/* color patterns */
+
+/***
+ *      /$$$$$$            /$$                              
+ *     /$$__  $$          | $$                              
+ *    | $$  \__/  /$$$$$$ | $$  /$$$$$$   /$$$$$$   /$$$$$$$
+ *    | $$       /$$__  $$| $$ /$$__  $$ /$$__  $$ /$$_____/
+ *    | $$      | $$  \ $$| $$| $$  \ $$| $$  \__/|  $$$$$$ 
+ *    | $$    $$| $$  | $$| $$| $$  | $$| $$       \____  $$
+ *    |  $$$$$$/|  $$$$$$/| $$|  $$$$$$/| $$       /$$$$$$$/
+ *     \______/  \______/ |__/ \______/ |__/      |_______/ 
+ */
+/* special color patterns */
 
 .color-modrinth-green {
     background-color: rgb(0, 175, 92);
