@@ -1,8 +1,35 @@
-/* EterIll's DownloadSite 
- * @author:EternalIllusion
- * @version:1.0.0
+/*              _____                _____                    _____                    _____          
+ *             /\    \              /\    \                  /\    \                  /\    \         
+ *            /::\    \            /::\    \                /::\    \                /::\    \        
+ *           /::::\    \           \:::\    \              /::::\    \              /::::\    \       
+ *          /::::::\    \           \:::\    \            /::::::\    \            /::::::\    \      
+ *         /:::/\:::\    \           \:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+ *        /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \        /:::/  \:::\    \    
+ *       /::::\   \:::\    \          /::::\    \       \:::\   \:::\    \      /:::/    \:::\    \   
+ *      /::::::\   \:::\    \        /::::::\    \    ___\:::\   \:::\    \    /:::/    / \:::\    \  
+ *     /:::/\:::\   \:::\    \      /:::/\:::\    \  /\   \:::\   \:::\    \  /:::/    /   \:::\ ___\ 
+ *    /:::/__\:::\   \:::\____\    /:::/  \:::\____\/::\   \:::\   \:::\____\/:::/____/     \:::|    |
+ *    \:::\   \:::\   \::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /\:::\    \     /:::|____|
+ *     \:::\   \:::\   \/____/   /:::/    / \/____/  \:::\   \:::\   \/____/  \:::\    \   /:::/    / 
+ *      \:::\   \:::\    \      /:::/    /            \:::\   \:::\    \       \:::\    \ /:::/    /  
+ *       \:::\   \:::\____\    /:::/    /              \:::\   \:::\____\       \:::\    /:::/    /   
+ *        \:::\   \::/    /    \::/    /                \:::\  /:::/    /        \:::\  /:::/    /    
+ *         \:::\   \/____/      \/____/                  \:::\/:::/    /          \:::\/:::/    /     
+ *          \:::\    \                                    \::::::/    /            \::::::/    /      
+ *           \:::\____\                                    \::::/    /              \::::/    /       
+ *            \::/    /                                     \::/    /                \::/____/        
+ *             \/____/                                       \/____/                  ~~ 
+ * 
+ * EternalIllusion's Download Site - [ETSD]
+ * Github.com/EternalIllusion/DownloadSite
+ * 
+ * A Python library to build a website in one-time generation.
+ * Capable for most CI/CD+Pages services such as GitHub & Cloudflare.
+ * 
+ * Created by EternalIllusion and all codes with [ETSD] sign 
+ * are not allowed to upload to GitCode/GitLab/CSDN 
+ * or any platform requires login to view contents.
  */
-
 
 /***
  *     /$$   /$$ /$$$$$$       /$$$$$$$                      /$$          
@@ -25,6 +52,7 @@
     box-sizing: border-box;
     white-space: pre-wrap;
     word-break: break-all;
+    transition: all .5s ease;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -80,6 +108,18 @@ body {
 .auto-breakword {
     white-space: pre-wrap !important;
     word-break: break-all !important;
+}
+
+.nav-active {
+    text-decoration: underline !important;
+    filter: brightness(1.2) opacity(1) !important;
+    color: #000 !important;
+}
+
+.nav-object {
+    text-decoration: none;
+    color: #666;
+    filter: opacity(0.7) blur(0.25px);
 }
 
 /***
@@ -175,7 +215,7 @@ body {
 }
 
 .searchlist-breakword li {
-    margin: .2rem !important;
+    margin: .2rem;
     min-height: 1.5rem;
     text-align: left;
     list-style: none;
@@ -212,7 +252,8 @@ body {
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4cc;
+    backdrop-filter: blur(5px);
     transition: width 0.3s;
     overflow: auto;
     overflow-x: hidden !important;
@@ -227,7 +268,8 @@ body {
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #fcfcfc;
+    background-color: #fcfcfcaa;
+    backdrop-filter: blur(8px);
     transition: width 0.3s;
     overflow: auto;
     overflow-x: hidden !important;
@@ -242,7 +284,7 @@ body {
     width: 10rem;
     min-width: 10rem;
     max-width: 10rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 #nav-sidebar-sub-wrapper {
@@ -253,7 +295,7 @@ body {
     width: 16rem;
     max-width: 16rem;
     min-width: 16rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 #nav-sidebar-sub-wrapper p{
@@ -266,6 +308,16 @@ body {
     max-width: 90%;
 }
 
+#nav-sidebar-wrapper > button, #nav-sidebar-sub-wrapper > button {
+    appearance:none !important;
+    background-color:#f5f5f5;
+    border:none;
+    border-radius:0.75rem;
+    box-shadow:0px 1px 2px #11182726;
+    color:#2c2e31ff;
+    outline:2px solid transparent !important;
+}
+
 .nav-sidebar-collapsed{
     width: 0 !important;
     overflow: hidden;
@@ -275,22 +327,24 @@ body {
 #nav-toggle-button {
     position: fixed;
     right: 22rem;
-    bottom: 2rem;
+    bottom: 3.5rem;
     width: 6rem;
     height: 3rem;
-    background-color: #bbbbbb;
+    background-color: #bbbbbb66;
+    backdrop-filter: blur(3px);
     color: black;
     border: none;
     cursor: pointer;
     border-radius: 1.5rem;
-    font-size: 24px;
-    line-height: 50px;
+    font-size: 1.5rem;
+    line-height: 3rem;
     text-align: left;
-    transition: transform 0.3s, bottom 0.3s, right 0.3s;
+    transition: transform .3s, bottom .3s, right .3s, width .3s;
     transform-origin: right;
     display: block;
     z-index: 60;
     transform: rotate(0deg);
+    filter: drop-shadow(0 0 .4rem #bbb);
 }
 
 #nav-toggle-button-arrow {
@@ -312,14 +366,15 @@ body {
 
 #nav-toggle-button.nav-sidebar-sub-collapsed-btn {
     right: 6rem;
-    bottom: 2rem;
+    bottom: 3.5rem;
     transform: rotate(0deg);
 }
 
 #nav-toggle-button.nav-sidebar-collapsed-btn.nav-sidebar-sub-collapsed-btn {
     display: block;
     right: .25rem;
-    bottom: 2rem;
+    bottom: 1rem;
+    width: 10rem;
     transform: rotate(90deg);
 }
 

@@ -1,3 +1,35 @@
+ #              _____                _____                    _____                    _____          
+ #             /\    \              /\    \                  /\    \                  /\    \         
+ #            /::\    \            /::\    \                /::\    \                /::\    \        
+ #           /::::\    \           \:::\    \              /::::\    \              /::::\    \       
+ #          /::::::\    \           \:::\    \            /::::::\    \            /::::::\    \      
+ #         /:::/\:::\    \           \:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+ #        /:::/__\:::\    \           \:::\    \        /:::/__\:::\    \        /:::/  \:::\    \    
+ #       /::::\   \:::\    \          /::::\    \       \:::\   \:::\    \      /:::/    \:::\    \   
+ #      /::::::\   \:::\    \        /::::::\    \    ___\:::\   \:::\    \    /:::/    / \:::\    \  
+ #     /:::/\:::\   \:::\    \      /:::/\:::\    \  /\   \:::\   \:::\    \  /:::/    /   \:::\ ___\ 
+ #    /:::/__\:::\   \:::\____\    /:::/  \:::\____\/::\   \:::\   \:::\____\/:::/____/     \:::|    |
+ #    \:::\   \:::\   \::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /\:::\    \     /:::|____|
+ #     \:::\   \:::\   \/____/   /:::/    / \/____/  \:::\   \:::\   \/____/  \:::\    \   /:::/    / 
+ #      \:::\   \:::\    \      /:::/    /            \:::\   \:::\    \       \:::\    \ /:::/    /  
+ #       \:::\   \:::\____\    /:::/    /              \:::\   \:::\____\       \:::\    /:::/    /   
+ #        \:::\   \::/    /    \::/    /                \:::\  /:::/    /        \:::\  /:::/    /    
+ #         \:::\   \/____/      \/____/                  \:::\/:::/    /          \:::\/:::/    /     
+ #          \:::\    \                                    \::::::/    /            \::::::/    /      
+ #           \:::\____\                                    \::::/    /              \::::/    /       
+ #            \::/    /                                     \::/    /                \::/____/        
+ #             \/____/                                       \/____/                  ~~ 
+ # 
+ # EternalIllusion's Download Site - [ETSD]
+ # Github.com/EternalIllusion/DownloadSite
+ # 
+ # A Python library to build a website in one-time generation.
+ # Capable for most CI/CD+Pages services such as GitHub & Cloudflare.
+ # 
+ # Created by EternalIllusion and all codes with [ETSD] sign 
+ # are not allowed to upload to GitCode/GitLab/CSDN 
+ # or any platform requires login to view contents.
+
 def header():
     return """<head>
     <meta charset="UTF-8">
@@ -93,3 +125,16 @@ def card(id,title,subtitle,description,icon_url,tags,stats):
             <div class="stats" id="{id}-stats">{stats}</div>
             </div>
             """
+            
+class sidebar:
+    def __init__(self):
+        self.user_main=''
+        self.main=''
+        self.sub={}
+    def __sub(self):
+        rtv = ""
+        for i in self.sub:
+            rtv += f'<div id="nav-sidebar-sub-{i}" class="nav-sidebar-group auto-breakword">{self.sub[i]}</div>'
+        return rtv
+    def __str__(self):
+        f'<div id="nav-sidebar" class="nav-sidebar-collapsed"><div id="nav-sidebar-wrapper"> {self.main}</div></div><div id="nav-sidebar-sub"><div id="nav-sidebar-sub-wrapper">{self.__sub()}</div></div></div><script>closeSidebarSub();if (getCookieBool("navsidebar")) {"{"}toggleSidebar();{"}"}refreshSidebarBtn();</script>'
